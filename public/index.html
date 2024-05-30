@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.12.2/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.12.2/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.12.2/firebase-remote-config-compat.js"></script>
+    <!-- <script defer src="/__/firebase/10.12.2/firebase-performance-compat.js"></script> -->
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <script>
+      function capitalizeFirstLetter(input) {
+        return input.charAt(0).toUpperCase() + input.slice(1);
+      }
+
+      function trimLeadingSpaces(input) {
+        return input.replace(/^\s+/, '');
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var nameInput = document.getElementById('name');
+        var locationInput = document.getElementById('location');
+
+        nameInput.addEventListener('input', function() {
+          this.value = capitalizeFirstLetter(trimLeadingSpaces(this.value));
+        });
+
+        locationInput.addEventListener('input', function() {
+          this.value = capitalizeFirstLetter(trimLeadingSpaces(this.value));
+        });
+      });
+    </script>
+
+    <style type="css">
+      
+    </style>
+  </head>
+  <header>
+    <h1>Welcome To Waggly!</h1>
+  </header>
+  <body>
+    <div class="signupform">
+      <h4>Dog Walker, register here!</h4>
+      <form id="walkerForm">
+
+        <div class="nameinputfield">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="emailinputfield">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="locationinputfield">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required>
+        </div>
+  
+        <button type="submit">Submit</button>
+      </form> 
+    </div>
+    <div class="signupform">
+      <h4>Dog Owner, register here!</h4>
+      <form id="ownerForm">
+
+        <div class="nameinputfield">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="emailinputfield">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="locationinputfield">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required>
+        </div>
+  
+        <button type="submit">Submit</button>
+      </form> 
+    </div>
+    
+    <div class="dogwalkerssection">
+      <h2>Dog Walkers</h2>
+      <section id="dogwalkers"></section>
+    </div>
+
+    <div class="dogownerssection">
+      <h2>Dog Owners</h2>
+      <section id="dogowners"></section>
+    </div>
+
+    <script defer type="module" src="app.js"></script>
+    
+  </body>
+</html>
