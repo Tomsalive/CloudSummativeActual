@@ -33,15 +33,19 @@
       }
 
       document.addEventListener('DOMContentLoaded', function() {
-        var nameInput = document.getElementById('name');
-        var locationInput = document.getElementById('location');
-
-        nameInput.addEventListener('input', function() {
-          this.value = capitalizeFirstLetter(trimLeadingSpaces(this.value));
+        var nameInputs = document.querySelectorAll('input[name="name"]');
+        var locationInputs = document.querySelectorAll('input[name="location"]');
+      
+        nameInputs.forEach(function(input) {
+          input.addEventListener('input', function() {
+            this.value = capitalizeFirstLetter(trimLeadingSpaces(this.value));
+          });
         });
-
-        locationInput.addEventListener('input', function() {
-          this.value = capitalizeFirstLetter(trimLeadingSpaces(this.value));
+      
+        locationInputs.forEach(function(input) {
+          input.addEventListener('input', function() {
+            this.value = capitalizeFirstLetter(trimLeadingSpaces(this.value));
+          });
         });
       });
     </script>
