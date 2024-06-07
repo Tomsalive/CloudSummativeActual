@@ -95,35 +95,25 @@ document.addEventListener("DOMContentLoaded", event =>{
             console.log("No dogowners section found");
     }});
 
-    // Get a reference to the form element
+
     const walkerForm = document.getElementById('walkerForm');
 
-    // Add an event listener for the form submission
+  
     walkerForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Get the form data
+        event.preventDefault(); 
         const formData = new FormData(event.target);
-
-        // Get the current timestamp
         const accountCreationDate = new Date();
 
-        // Create a new document in the 'dogwalkers' collection
         db.collection('dogwalkers').add({
             name: formData.get('name'),
             email: formData.get('email'),
             location: formData.get('location'),
             accountCreationDate: accountCreationDate,
-            // Add any other form fields you want to store
         })
         .then(() => {
             console.log('Document successfully written!');
-            // Display the success alert
             alert('Form submitted successfully!');
-
-            // Refresh the page
             window.location.reload();
-        // You can add additional logic here, such as resetting the form or displaying a success message
         })
         .catch((error) => {
             console.error('Error writing document: ', error);
